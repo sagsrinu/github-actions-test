@@ -1,4 +1,4 @@
-name: Terraform Deploy
+name: Terraform Destroy
 
 on:
   # push:
@@ -28,11 +28,11 @@ jobs:
       - name: Terraform Validate
         run: terraform validate
 
-      - name: Terraform Plan
-        run: terraform plan -out=tfplan
+      - name: Terraform Destroy Plan
+        run: terraform plan -destroy
 
-      - name: Terraform apply
-        run: terraform apply -auto-approve tfplan
+      - name: Terraform Destroy Apply
+        run: terraform destroy -auto-approve
 
 
 #### condition based after plan approval only apply #######
